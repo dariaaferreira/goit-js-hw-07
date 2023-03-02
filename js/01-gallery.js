@@ -12,7 +12,7 @@ const images = galleryItems.map(({ original, preview, description}) => {
     />
   </a>
   </div>`
-}).join("");
+}).join(" ");
 
 console.log(galleryItems);
   
@@ -24,6 +24,9 @@ galleryContainer.addEventListener('click', onClick);
 const instance = basicLightbox.create(`<img src="#" width="800" height="600">`, {
     onShow: (instance) => {
         window.addEventListener('keydown', onEscape)
+    },
+    onClose: (instance) => {
+        window.removeEventListener('keydown', onEscape)
     }
 });
   
